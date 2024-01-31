@@ -1,0 +1,21 @@
+AMQP_URI: amqp://rabbit:ayyw@192.168.110.86:5672/
+REDIS_URIS:
+    default: redis://:${REDIS_PASS:2445012135}@${REDIS_HOST:redis}:${REDIS_PORT:6379}
+
+max_workers: 50
+
+LOGGING:
+    version: 1
+    disable_existing_loggers: False
+    formatters:
+        default:
+            format: "%(asctime)-15s [%(levelname)-4s] [users] [%(name)-12s] %(message)s"
+    handlers:
+        default:
+            level: INFO
+            formatter: default
+            class: logging.StreamHandler
+    root:
+        level: INFO
+        propagate: True
+        handlers: [default]
